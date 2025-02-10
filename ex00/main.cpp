@@ -10,17 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
+#include <string>
 #include "Zombie.hpp"
 #include "utils.hpp"
 
 int	main(void)
 {
-	Zombie	*zombie;
+	int		n;
+	std::string	name;
+	Zombie		*zombie;
 
-	zombie = newZombie("Raliva");
-	if (zombie)
-		zombie->announce();
-	if (zombie)
-		delete zombie;
+	std::cout << "Enter number of Zombie: ";
+	std::cin >> n;
+	std::cin.ignore();
+
+	for (int i = 0; i < n; i++)
+	{
+		std::cout << "Name the Zombie: ";
+		std::getline(std::cin, name);
+		zombie = newZombie(name);
+		if (zombie)
+			zombie->announce();
+		if (zombie)
+			delete zombie;
+	}
 	return (0);
 }

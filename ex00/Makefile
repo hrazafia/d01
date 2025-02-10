@@ -24,7 +24,7 @@ OBJ = $(addprefix $(OBJS_DIR), $(OBJS))
 all: $(NAME)
 
 $(NAME): $(OBJ) $(INC)
-	$(CC) -o $(NAME) $(OBJ)
+	$(CC) -o $(NAME) $(OBJ) $(CFLAGS)
 
 %.o: %.cpp $(INC)
 	$(CC) -c -I$(INCS_DIR) -o $@ $< $(CFLAGS)
