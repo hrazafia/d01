@@ -17,8 +17,8 @@
 
 int	main(void)
 {
-	int		n;
-	std::string	name;
+	int		n = 0;
+	std::string	name = "";
 	Zombie		*zombie;
 
 	std::cout << "Enter number of Zombie: ";
