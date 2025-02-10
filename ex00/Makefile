@@ -1,18 +1,19 @@
-NAME = phonebook
+NAME = zombie
 CC = c++
-RM = rm -rf
+RM = rm -f
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
 
-INCS =	Contact.hpp \
-		PhoneBook.hpp
+INCS =	Zombie.hpp \
+		utils.hpp
 
 SRCS =	main.cpp \
-		Contact.cpp \
-		PhoneBook.cpp
+		Zombie.cpp \
+		randomChump.cpp \
+		newZombie.cpp
 
-OBJS_DIR = ./bin/
-SRCS_DIR = ./src/
-INCS_DIR = ./include/
+OBJS_DIR = ./
+SRCS_DIR = ./
+INCS_DIR = ./
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -22,17 +23,14 @@ OBJ = $(addprefix $(OBJS_DIR), $(OBJS))
 
 all: $(NAME)
 
-$(NAME): $(OBJS_DIR) $(OBJ) $(INC)
-	$(CC) -o $(NAME) $(OBJ) $(CFLAGS)
+$(NAME): $(OBJ) $(INC)
+	$(CC) -o $(NAME) $(OBJ)
 
-$(OBJS_DIR)%.o: $(SRCS_DIR)%.cpp $(INC)
+%.o: %.cpp $(INC)
 	$(CC) -c -I$(INCS_DIR) -o $@ $< $(CFLAGS)
 
-$(OBJS_DIR):
-	mkdir -p $(OBJS_DIR)
-
 clean:
-	$(RM) $(OBJS_DIR)
+	$(RM) $(OBJ)
 
 fclean: clean
 	$(RM) $(NAME)
