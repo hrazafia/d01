@@ -16,10 +16,11 @@ Zombie	*zombieHorde(int N, std::string name);
 
 int	main(void)
 {
+	int	N = 4;
 	Zombie	*horde;
 	
-	horde = zombieHorde(4, "Zombie");
-	for (int i = 0; i < 4; i++)
+	horde = zombieHorde(N, "42");
+	for (int i = 0; i < N; i++)
 		horde[i].announce();
 	delete[] horde;
 	return (0);
