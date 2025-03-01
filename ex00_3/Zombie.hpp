@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hrazafia <hrazafia@student.42antanana      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/10 08:08:31 by hrazafia          #+#    #+#             */
-/*   Updated: 2025/02/10 08:14:19 by hrazafia         ###   ########.fr       */
+/*   Created: 2025/02/10 07:47:49 by hrazafia          #+#    #+#             */
+/*   Updated: 2025/02/10 07:53:21 by hrazafia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-Zombie	*newZombie(std::string name)
+#include <iostream>
+#include <string>
+
+class Zombie
 {
-	Zombie	*zombie;
-	
-	zombie = new Zombie;
-	if (zombie == NULL)
-		return (NULL);
-	zombie->setName(name);
-	return (zombie);
-}
+	private:
+		std::string	_name;
+
+	public:
+				Zombie(std::string name);
+				~Zombie(void);
+		void	announce(void);
+};
+
+#endif

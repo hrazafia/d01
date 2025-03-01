@@ -3,7 +3,8 @@ CC = c++
 RM = rm -f
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
 
-INCS =	Zombie.hpp
+INCS =	Zombie.hpp \
+		utils.hpp
 
 SRCS =	main.cpp \
 		Zombie.cpp \

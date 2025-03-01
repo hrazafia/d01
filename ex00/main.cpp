@@ -13,27 +13,25 @@
 #include <iostream>
 #include <string>
 #include "Zombie.hpp"
-#include "utils.hpp"
+
+Zombie	*newZombie(std::string name);
+void	randomChump(std::string name);
 
 int	main(void)
 {
-	int		n = 0;
-	std::string	name = "";
+	std::string	name;
 	Zombie		*zombie;
 
-	std::cout << "Enter number of Zombie: ";
-	std::cin >> n;
-	std::cin.ignore();
-
-	for (int i = 0; i < n; i++)
+	std::cout << "Enter a name of Zombie: ";
+	std::getline(std::cin, name);
+	zombie = newZombie(name);
+	if (zombie != NULL)
 	{
-		std::cout << "Name the Zombie: ";
-		std::getline(std::cin, name);
-		zombie = newZombie(name);
-		if (zombie)
-			zombie->announce();
-		if (zombie)
-			delete zombie;
+		zombie->announce();
+		delete zombie;
 	}
+	std::cout << "Enter an other name of Zombie: ";
+	std::getline(std::cin, name);
+	randomChump(name);
 	return (0);
 }
