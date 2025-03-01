@@ -11,16 +11,16 @@
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-#include "utils.hpp"
+
+Zombie	*zombieHorde(int N, std::string name);
 
 int	main(void)
 {
-	Zombie	*zombie;
-
-	zombie = newZombie("Raliva");
-	if (zombie)
-		zombie->announce();
-	if (zombie)
-		delete zombie;
+	Zombie	*horde;
+	
+	horde = zombieHorde(4, "Zombie");
+	for (int i = 0; i < 4; i++)
+		horde[i].announce();
+	delete[] horde;
 	return (0);
 }
