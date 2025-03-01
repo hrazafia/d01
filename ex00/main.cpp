@@ -6,34 +6,31 @@
 /*   By: hrazafia <hrazafia@student.42antanana      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 07:59:16 by hrazafia          #+#    #+#             */
-/*   Updated: 2025/02/10 08:17:00 by hrazafia         ###   ########.fr       */
+/*   Updated: 2025/03/01 10:35:12 by hrazafia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 #include "Zombie.hpp"
-#include "utils.hpp"
 
 int	main(void)
 {
-	int		n = 0;
-	std::string	name = "";
-	Zombie		*zombie;
+	std::string	name;
+	Zombie		*newZombie;
+	Zombie		zombie("Foo");
 
-	std::cout << "Enter number of Zombie: ";
-	std::cin >> n;
-	std::cin.ignore();
-
-	for (int i = 0; i < n; i++)
+	zombie.announce();
+	std::cout << "Enter a name of Zombie: ";
+	std::getline(std::cin, name);
+	newZombie = zombie.newZombie(name);
+	if (newZombie)
 	{
-		std::cout << "Name the Zombie: ";
-		std::getline(std::cin, name);
-		zombie = newZombie(name);
-		if (zombie)
-			zombie->announce();
-		if (zombie)
-			delete zombie;
+		newZombie->announce();
+		delete newZombie;
 	}
+	std::cout << "Enter an other name of Zombie: ";
+	std::getline(std::cin, name);
+	zombie.randomChump(name);
 	return (0);
 }
