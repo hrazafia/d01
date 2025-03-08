@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   zombieHorde.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hrazafia <hrazafia@student.42antanana      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,18 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIEHORDE_HPP
+# define ZOMBIEHORDE_HPP
 
-Zombie*	zombieHorde(int N, std::string name)
-{
-	Zombie	*horde;
+# include "Zombie.hpp"
 
-	if ((N <= 0) || (name.empty()))
-		return (NULL);
-	horde = new Zombie[N];
-	if (horde == NULL)
-		return (NULL);
-	for (int i = 0; i < N; i++)
-		horde[i].setName(name);
-	return (horde);
-}
+Zombie*	zombieHorde(int N, std::string name);
+
+#endif

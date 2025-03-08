@@ -1,13 +1,15 @@
-NAME = zombie
+NAME = zombie_horde
 CC = c++
 RM = rm -f
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
 
-INCS =	Zombie.hpp
+INCS =	Zombie.hpp \
+		Input.hpp
 
 SRCS =	main.cpp \
 		Zombie.cpp \
-		zombieHorde.cpp
+		zombieHorde.cpp \
+		Input.cpp
 
 OBJS_DIR = ./
 SRCS_DIR = ./

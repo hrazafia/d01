@@ -10,17 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
+#include <string>
 #include "Zombie.hpp"
-
-Zombie	*zombieHorde(int N, std::string name);
+#include "zombieHorde.hpp"
+#include "Input.hpp"
 
 int	main(void)
 {
-	int	N = 4;
+	int	n = 0;
+	std::string	name;
 	Zombie	*horde;
-	
-	horde = zombieHorde(N, "42");
-	for (int i = 0; i < N; i++)
+	int	ret;
+
+	ret = Input::getInt(&n, "Enter the number of the zombie horde: ");
+	while (ret == false)
+	{
+		std::cout << "Invalid input." << std::endl;
+		ret = Input::getInt(&n, "Please enter the number of the zombie horde: ");
+	}
+	name = Input::getString("Enter the zombie horde name: ");
+	horde = zombieHorde(n, name);
+	if (horde == NULL)
+		return (0);
+	for (int i = 0; i < n; i++)
 		horde[i].announce();
 	delete[] horde;
 	return (0);
