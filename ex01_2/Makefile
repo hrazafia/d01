@@ -4,13 +4,11 @@ RM = rm -f
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
 
 INCS =	Zombie.hpp \
-		randomChump.hpp \
-		newZombie.hpp
+		zombieHorde.hpp
 
 SRCS =	main.cpp \
 		Zombie.cpp \
-		randomChump.cpp \
-		newZombie.cpp
+		zombieHorde.cpp
 
 OBJS_DIR = ./
 SRCS_DIR = ./
