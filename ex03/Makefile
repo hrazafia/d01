@@ -3,10 +3,14 @@ CC = c++
 RM = rm -f
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
 
-INCS =	Weapon.hpp
+INCS =	Weapon.hpp \
+		HumanA.hpp \
+		HumanB.hpp
 
 SRCS =	main.cpp \
-		Weapon.cpp
+		Weapon.cpp \
+		HumanA.cpp \
+		HumanB.cpp
 
 OBJS_DIR = ./
 SRCS_DIR = ./
