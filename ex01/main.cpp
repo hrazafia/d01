@@ -23,14 +23,16 @@ int	main(void)
 	Zombie	*horde;
 	bool	isnum;
 
-	if (!Input::getInt(&n, "Enter the number of the zombie horde: "))
+	if (!Input::getInt(n, "Enter the number of the zombie horde: ", isnum))
 		return (1);
-	while (ret == false)
+	while (isnum == false)
 	{
 		std::cout << "Invalid input." << std::endl;
-		ret = Input::getInt(&n, "Please enter the number of the zombie horde: ");
+		if (!Input::getInt(n, "Enter the number of the zombie horde: ", isnum))
+			return (1);
 	}
-	name = Input::getString("Enter the zombie horde name: ");
+	if (!Input::getString(name, "Enter the zombie horde name: "))
+		return (1);
 	horde = zombieHorde(n, name);
 	if (horde == NULL)
 		return (0);
