@@ -5,38 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hrazafia <hrazafia@student.42antanana      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/03 07:10:51 by hrazafia          #+#    #+#             */
-/*   Updated: 2025/02/25 13:16:30 by hrazafia         ###   ########.fr       */
+/*   Created: 2025/02/05 14:53:10 by hrazafia          #+#    #+#             */
+/*   Updated: 2025/03/11 07:49:06 by hrazafia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Input.hpp"
 
-std::string	Input::getString(const std::string &prompt)
+bool	Input::getString(std::string &input, const std::string &prompt)
 {
-	std::string input;
-
 	std::cout << prompt;
 	std::getline(std::cin, input);
 	if (std::cin.eof())
 	{
 		std::cout << std::endl;
-		std::exit(0);
+		return (false);
 	}
-	return (cleanWhitespace(input));
+	input = cleanWhitespace(input);
+	return (true);
 }
 
-bool	Input::getInt(int *value, const std::string &prompt)
+bool	Input::getInt(int &value, const std::string &prompt, bool &isnum)
 {
 	std::string	input;
 
-	input = getString(prompt);
-	if (isNumeric(input) && isValidSize(input))
-	{
-		*value = std::atoi(input.c_str());
-		return (true);
-	}
-	return (false);
+	if (getString(input, prompt) == false)
+		return (false);
+	isnum = (isNumeric(input) && isValidSize(input));
+	if (isnum == true)
+		value = std::atoi(input.c_str());
+	return (true);
 }
 
 std::string	Input::cleanWhitespace(const std::string &value)

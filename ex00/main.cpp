@@ -21,9 +21,11 @@ int	main(void)
 	std::string	name;
 	Zombie		*zombie;
 
-	name = Input::getString("Enter a zombie name: ");
+	if (!Input::getString(name, "Enter a zombie name: "))
+		return (1);
 	randomChump(name);
-	name = Input::getString("Enter another zombie name: ");
+	if (!Input::getString(name, "Enter another zombie name: "))
+		return (1);
 	zombie = newZombie(name);
 	if (zombie != NULL)
 	{

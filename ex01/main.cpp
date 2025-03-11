@@ -21,9 +21,10 @@ int	main(void)
 	int	n = 0;
 	std::string	name;
 	Zombie	*horde;
-	int	ret;
+	bool	isnum;
 
-	ret = Input::getInt(&n, "Enter the number of the zombie horde: ");
+	if (!Input::getInt(&n, "Enter the number of the zombie horde: "))
+		return (1);
 	while (ret == false)
 	{
 		std::cout << "Invalid input." << std::endl;
