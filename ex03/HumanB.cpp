@@ -12,14 +12,17 @@
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(const std::string &name)
+HumanB::HumanB(const std::string &name): weapon(NULL)
 {
 	this->name = name;
 }
 
 void	HumanB::attack(void)
 {
-	std::cout << name << " attacks with their " << weapon->getType() << std::endl;
+	if (weapon == NULL)
+		std::cout << name << " attacks" << std::endl;
+	else
+		std::cout << name << " attacks with their " << weapon->getType() << std::endl;
 }
 
 void	HumanB::setWeapon(Weapon &weapon)
