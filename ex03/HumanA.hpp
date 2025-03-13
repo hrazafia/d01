@@ -6,7 +6,7 @@
 /*   By: hrazafia <hrazafia@student.42antanana      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 07:52:06 by hrazafia          #+#    #+#             */
-/*   Updated: 2025/03/08 07:52:07 by hrazafia         ###   ########.fr       */
+/*   Updated: 2025/03/13 10:12:30 by hrazafia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class HumanA
 		Weapon		&weapon;
 
 	public:
-				HumanA(const std::string &name, Weapon &weaponA);
+				HumanA(const std::string &name, Weapon &weapon);
 		void	attack(void);
 };
 
