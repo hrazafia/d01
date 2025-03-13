@@ -12,12 +12,12 @@
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(const std::string &name, Weapon &weaponA): weapon(weaponA)
+HumanA::HumanA(const std::string &name, Weapon &weapon): weaponRef(weapon)
 {
 	this->name = name;
 }
 
 void	HumanA::attack(void)
 {
-	std::cout << name << " attacks with their " << weapon.getType() << std::endl;
+	std::cout << name << " attacks with their " << weaponRef.getType() << std::endl;
 }
