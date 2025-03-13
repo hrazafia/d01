@@ -3,13 +3,11 @@ CC = c++
 RM = rm -f
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
 
-INCS =	Zombie.hpp \
-		Input.hpp
+INCS =	Zombie.hpp
 
 SRCS =	main.cpp \
 		Zombie.cpp \
-		zombieHorde.cpp \
-		Input.cpp
+		zombieHorde.cpp
 
 OBJS_DIR = ./
 SRCS_DIR = ./
