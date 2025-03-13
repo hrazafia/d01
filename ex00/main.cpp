@@ -6,27 +6,24 @@
 /*   By: hrazafia <hrazafia@student.42antanana      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 07:59:16 by hrazafia          #+#    #+#             */
-/*   Updated: 2025/03/04 11:11:54 by hrazafia         ###   ########.fr       */
+/*   Updated: 2025/03/13 09:38:08 by hrazafia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Input.hpp"
 #include "newZombie.hpp"
 #include "randomChump.hpp"
 #include "Zombie.hpp"
 
 int	main(void)
 {
-	std::string	name;
-	Zombie		*zombie;
+	Zombie	*zombie;
 
-	if (!Input::getString(name, "Enter a zombie name: "))
-		return (1);
-	randomChump(name);
-	if (!Input::getString(name, "Enter another zombie name: "))
-		return (1);
-	zombie = newZombie(name);
+	std::cout << "====================Test 1====================" << std::endl;
+	randomChump("Foo");
+
+	std::cout << "====================Test 2====================" << std::endl;
+	zombie = newZombie("Bar");
 	if (zombie != NULL)
 	{
 		zombie->announce();
