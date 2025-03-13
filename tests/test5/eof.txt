@@ -1,0 +1,28 @@
+ifstream file_input(path_input);
+if(file_input)
+{
+    //file_input.seekg(0,file_input.end);
+    //unsigned long long length = file_input.tellg();   //get file size
+    //file_input.seekg(0,file_input.beg);
+
+    char * buffer = new char [MAX_NUM_PER_FILE+MAX_NUM_PER_LINE];
+    int i=1,j;
+    char c,tmp[3];
+    while(file_input.peek()!=EOF)
+    {
+        memset(buffer,0,sizeof(char)*(MAX_NUM_PER_FILE+MAX_NUM_PER_LINE));  //clear first!
+        file_input.read(buffer,MAX_NUM_PER_FILE);
+        j=MAX_NUM_PER_FILE;
+        while(file_input.get(c)&&c!='\n')
+            buffer[j++]=c;
+
+        itoa(i++,tmp,10);//int2char
+        string out_name="out"+string(tmp)+".txt";
+        ofstream file_output(out_name);
+        file_output.write(buffer,strlen(buffer));   //use the correct buffer size instead of j
+        file_output.close();
+    }
+
+    file_input.close();
+    delete[] buffer;
+}
