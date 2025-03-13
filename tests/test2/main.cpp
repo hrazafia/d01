@@ -17,7 +17,7 @@ int	main(void)
 {
 	std::ofstream	ofs;
 
-	ofs.open("test.txt");
+	ofs.open("file.txt", std::ofstream::out | std::ofstream::trunc);
 	if (ofs.is_open())
 	{
 		ofs << "lorem ipsum Livasoa";
