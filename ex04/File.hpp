@@ -20,13 +20,10 @@
 class	File
 {
 	private:
-		std::ifstream	ifs;
-		std::ofstream	ofs;
-		std::string		filename;
+		std::string		name;
 
 	public:
-				File(std::string filename);
-				~File(void);
+				File(const std::string &name);
 		void	replaceContent(const std::string &s1, const std::string &s2);
 		void	lineReplace(std::string &line, const std::string &s1, const std::string &s2);
 };

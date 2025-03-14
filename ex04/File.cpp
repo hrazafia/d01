@@ -12,43 +12,41 @@
 
 #include "File.hpp"
 
-File::File(std::string filename)
+File::File(const std::string &name)
 {
-	this->filename = filename;
-	this->ifs.open(filename.c_str(), std::ifstream::in);
-	this->ofs.open(filename.append(".replace").c_str(), std::ofstream::out);
-}
-
-File::~File(void)
-{
-	this->ifs.close();
-	this->ofs.close();
+	this->name = name;
 }
 
 void	File::replaceContent(const std::string &s1, const std::string &s2)
 {
 	std::string	line;
+	std::ifstream	ifs;
+	std::ofstream	ofs;
+	std::string	filename;
 
-	if (ifs.is_open() && ofs.is_open())
-	{
-		while (getline(ifs, line))
-		{
-			lineReplace(line, s1, s2);
-			ofs << line;
-			if (ifs.eof() == false)
-			{
-				ofs << std::endl;
-			}
-		}
-	}
-	else if (ifs.is_open() == false)
+	filename = this->name;
+	ifs.open(filename.c_str(), std::ifstream::in);
+	if (ifs.is_open() == false)
 	{
 		std::cout << "cannot open \"" << filename << "\""<< std::endl;
+		return ;
 	}
-	else if (ofs.is_open() == false)
+	ofs.open(filename.append(".replace").c_str(), std::ofstream::out);
+	if (ofs.is_open() == false)
 	{
-		std::cout << "cannot open \"" << filename + ".replace\"" << std::endl;
+		ifs.close();
+		std::cout << "cannot open \"" << filename << "\""<< std::endl;
+		return ;
 	}
+	while (getline(ifs, line))
+	{
+		lineReplace(line, s1, s2);
+		ofs << line;
+		if (ifs.eof() == false)
+			ofs << std::endl;
+	}
+	ifs.close();
+	ofs.close();
 }
 
 void	File::lineReplace(std::string &line, const std::string &s1, const std::string &s2)
