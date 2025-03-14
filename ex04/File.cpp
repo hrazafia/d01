@@ -43,11 +43,11 @@ void	File::replaceContent(const std::string &s1, const std::string &s2)
 	}
 	else if (ifs.is_open() == false)
 	{
-		std::cout << "error: opening " << filename << std::endl;
+		std::cout << "cannot open \"" << filename << "\""<< std::endl;
 	}
 	else if (ofs.is_open() == false)
 	{
-		std::cout << "error: opening " << filename + ".replace" << std::endl;
+		std::cout << "cannot open \"" << filename + ".replace\"" << std::endl;
 	}
 }
 
