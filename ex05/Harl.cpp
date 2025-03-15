@@ -18,20 +18,16 @@ void	Harl::complain(std::string level)
 
 	std::string	func[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
-	void	(Harl::*complainPtr[4])(void) = {
+	void	(Harl::*complainPtr[5])(void) = {
 		&Harl::debug,
 		&Harl::info,
 		&Harl::warning,
-		&Harl::error
+		&Harl::error,
+		&Harl::unknown
 	};
 	int	i = 0;
 	while ((i < 4) && (level != func[i]))
 		i++;
-	if (i == 4)
-	{
-		std::cout << "unknown level" << std::endl;
-		return ;
-	}
 	(harl.*complainPtr[i])();
 }
 
@@ -64,4 +60,9 @@ void	Harl::error(void)
 	std::cout << "[ ERROR ]" << std::endl;
 	std::cout << "This is unacceptable! I want to speak to the manager now.";
 	std::cout << std::endl;
+}
+
+void	Harl::unknown(void)
+{
+	std::cout << "unknown level" << std::endl;
 }
