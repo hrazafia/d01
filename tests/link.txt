@@ -1,0 +1,1 @@
+http://www.dev-hq.net/c++/20--function-pointers
