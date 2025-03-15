@@ -3,9 +3,10 @@ CC = c++
 RM = rm -f
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
 
-INCS =
+INCS =	Harl.hpp
 
-SRCS =	main.cpp
+SRCS =	main.cpp \
+		Harl.cpp
 
 OBJS_DIR = ./
 SRCS_DIR = ./
