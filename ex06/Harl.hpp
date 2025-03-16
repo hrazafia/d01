@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hrazafia <hrazafia@student.42antanana      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/15 14:36:50 by hrazafia          #+#    #+#             */
-/*   Updated: 2025/03/15 15:43:03 by hrazafia         ###   ########.fr       */
+/*   Created: 2025/03/15 15:51:47 by hrazafia          #+#    #+#             */
+/*   Updated: 2025/03/15 15:52:40 by hrazafia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef HARL_HPP
+# define HARL_HPP
 
-int	main(int argc, char **argv)
+# include <iostream>
+
+class	Harl
 {
-	Harl	harl;
+	private:
+		void	debug(void);
+		void	info(void);
+		void	warning(void);
+		void	error(void);
 
-	if (argc != 2)
-	{
-		std::cout << "One level complain is required" << std::endl;
-		return (1);
-	}
-	harl.complain(argv[1]);
-	return (0);
-}
+	public:
+		void	complain(std::string level);
+};
+
+#endif
