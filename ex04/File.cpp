@@ -28,14 +28,14 @@ void	File::replaceContent(const std::string &s1, const std::string &s2)
 	ifs.open(filename.c_str(), std::ifstream::in);
 	if (ifs.is_open() == false)
 	{
-		std::cout << "cannot open \"" << filename << "\""<< std::endl;
+		std::cout << "Cannot open \"" << filename << "\""<< std::endl;
 		return ;
 	}
 	ofs.open(filename.append(".replace").c_str(), std::ofstream::out);
 	if (ofs.is_open() == false)
 	{
 		ifs.close();
-		std::cout << "cannot open \"" << filename << "\""<< std::endl;
+		std::cout << "Cannot open \"" << filename << "\""<< std::endl;
 		return ;
 	}
 	while (getline(ifs, line))
@@ -54,6 +54,8 @@ void	File::lineReplace(std::string &line, const std::string &s1, const std::stri
 		size_t	pos = 0;
 		size_t	offset = 0;
 
+		if (line.empty() || s1.empty())
+			return ;
 		pos = line.find(s1, offset);
 		while (pos != line.npos)
 		{

@@ -23,7 +23,7 @@ void	test1(void)
 	horde = zombieHorde(n, "Foo");
 	if (horde == NULL)
 	{
-		std::cout << "No zombie horde" << std::endl;
+		std::cout << "Test fail" << std::endl;
 	}
 	else
 	{
