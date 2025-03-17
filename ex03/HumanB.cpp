@@ -20,7 +20,7 @@ HumanB::HumanB(const std::string &name): weaponPtr(NULL)
 void	HumanB::attack(void)
 {
 	if (weaponPtr == NULL)
-		std::cout << name << " attacks" << std::endl;
+		std::cout << name << " tries to attack but has no weapon" << std::endl;
 	else
 		std::cout << name << " attacks with their " << weaponPtr->getType() << std::endl;
 }
