@@ -31,7 +31,7 @@ void	File::replaceContent(const std::string &s1, const std::string &s2)
 		std::cout << "Cannot open \"" << filename << "\""<< std::endl;
 		return ;
 	}
-	ofs.open(filename.append(".replace").c_str(), std::ofstream::out);
+	ofs.open(filename.append(".replace").c_str(), std::ofstream::out | std::ofstream::trunc);
 	if (ofs.is_open() == false)
 	{
 		ifs.close();
