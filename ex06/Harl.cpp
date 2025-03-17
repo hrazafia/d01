@@ -6,7 +6,7 @@
 /*   By: hrazafia <hrazafia@student.42antanana      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 15:52:46 by hrazafia          #+#    #+#             */
-/*   Updated: 2025/03/17 07:28:15 by hrazafia         ###   ########.fr       */
+/*   Updated: 2025/03/17 09:32:18 by hrazafia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,10 @@ void	Harl::complain(std::string level)
 	{
 		case 0:
 			debug();
-			info();
-			warning();
-			error();
-			break ;
 		case 1:
 			info();
-			warning();
-			error();
-			break ;
 		case 2:
 			warning();
-			error();
-			break ;
 		case 3:
 			error();
 			break ;
