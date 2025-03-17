@@ -40,10 +40,10 @@ void	File::replaceContent(const std::string &s1, const std::string &s2)
 	}
 	while (getline(ifs, line))
 	{
+		if (ifs.eof() == false)
+			line.append("\n");
 		lineReplace(line, s1, s2);
 		ofs << line;
-		if (ifs.eof() == false)
-			ofs << std::endl;
 	}
 	ifs.close();
 	ofs.close();
